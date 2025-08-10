@@ -335,7 +335,7 @@ async def make_img_black_and_white(
 async def main():
     port = int(os.environ.get("PORT", 8086))
     print(f"🚀 Starting MCP server on http://0.0.0.0:{port}")
-    await mcp.run_async("streamable-http", host="0.0.0.0", port=port)
+    await mcp.run_sse_async(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
     asyncio.run(main())
