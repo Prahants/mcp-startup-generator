@@ -7,7 +7,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Import your MCP server components
-from mcp_bearer_token.mcp_starter import mcp
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'mcp-bearer-token'))
+
+try:
+    from mcp_starter import mcp
+except ImportError:
+    mcp = None
 
 class MCPServerWrapper:
     def __init__(self):

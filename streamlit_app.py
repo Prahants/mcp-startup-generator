@@ -1,15 +1,13 @@
 import streamlit as st
-import asyncio
-import threading
-import time
 import os
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-# Import your MCP server
-from mcp_bearer_token.mcp_starter import mcp
+# MCP Server info (simplified for Streamlit demo)
+AUTH_TOKEN = os.environ.get("AUTH_TOKEN", "312TLp2x38Z134ftKu9y2UQp08e_4ojc3FppBudJMnbrGGAb1")
+MY_NUMBER = os.environ.get("MY_NUMBER", "918148959057")
 
 st.set_page_config(
     page_title="🚀 Dynamic Startup Idea Generator",
@@ -32,8 +30,8 @@ with st.sidebar:
     st.write("✅ Validation Tool")
     
     st.header("🔗 Connection Info")
-    st.code("AUTH_TOKEN: 312TLp2x38Z134ftKu9y2UQp08e_4ojc3FppBudJMnbrGGAb1")
-    st.code("PHONE: 918148959057")
+    st.code(f"AUTH_TOKEN: {AUTH_TOKEN}")
+    st.code(f"PHONE: {MY_NUMBER}")
 
 # Main content
 col1, col2 = st.columns([2, 1])
@@ -81,7 +79,7 @@ with col2:
     2. **Use this command in Puch AI:**
     
     ```
-    /mcp connect https://your-app.streamlit.app/mcp 312TLp2x38Z134ftKu9y2UQp08e_4ojc3FppBudJMnbrGGAb1
+    /mcp connect https://your-app.streamlit.app/mcp {AUTH_TOKEN}
     ```
     
     ### 🎯 Test Commands
