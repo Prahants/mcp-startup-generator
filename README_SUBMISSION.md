@@ -169,3 +169,7 @@ Generate a startup idea for education
 ---
 
 *Built with ❤️ for the MCP Hackathon - Empowering entrepreneurs with AI-powered startup ideas!* 🚀
+
+
+
+
