@@ -107,7 +107,7 @@ mcp = FastMCP(
 )
 
 # --- Tool: validate (required by Puch) ---
-@mcp.tool
+@mcp.tool()
 async def validate() -> str:
     return MY_NUMBER
 
