@@ -9,4 +9,3 @@ services:
         sync: false
       - key: MY_NUMBER
         sync: false
-    healthCheckPath: /health
