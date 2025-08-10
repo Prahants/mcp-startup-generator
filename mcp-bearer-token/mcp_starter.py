@@ -345,10 +345,16 @@ async def make_img_black_and_white(
     except Exception as e:
         raise McpError(ErrorData(code=INTERNAL_ERROR, message=str(e)))
 
+# --- Health Check Endpoint ---
+@mcp.get("/health")
+async def health_check():
+    return {"status": "healthy", "service": "MCP Startup Generator"}
+
 # --- Run MCP Server ---
 async def main():
-    print("🚀 Starting MCP server on http://0.0.0.0:8086")
-    await mcp.run_async("streamable-http", host="0.0.0.0", port=8086)
+    port = int(os.environ.get("PORT", 8086))
+    print(f"🚀 Starting MCP server on http://0.0.0.0:{port}")
+    await mcp.run_async("streamable-http", host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
     asyncio.run(main())

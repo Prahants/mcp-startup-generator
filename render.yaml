@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: mcp-startup-generator
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd mcp-bearer-token && python mcp_starter.py
+    envVars:
+      - key: AUTH_TOKEN
+        sync: false
+      - key: MY_NUMBER
+        sync: false
+    healthCheckPath: /health
