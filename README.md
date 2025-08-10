@@ -2,7 +2,7 @@
 
 ## 🏆 Hackathon Submission
 
-**Team:** Solo Developer  
+**Team:** Puch pioneers
 **Project:** Dynamic Startup Idea Generator MCP Server  
 **Category:** AI/ML Tools & Productivity
 
@@ -162,9 +162,9 @@ Generate a startup idea for education
 
 ## 📞 **Contact**
 
-**Developer**: Prashant Kumar && Ritwika Bandyopadhyay
-**Phone**: +91 8148959057  && +91 8509650077
-**Project**: Dynamic Startup Idea Generator MCP Server
+- **Developer**: Prashant Kumar && Ritwika Bandyopadhyay
+- **Phone**: +91 8148959057  && +91 8509650077
+- **Project**: Dynamic Startup Idea Generator MCP Server
 
 ---
 
