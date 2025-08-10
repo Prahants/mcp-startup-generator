@@ -2,9 +2,9 @@
 
 ## 🏆 Hackathon Submission
 
-**Team:** Puch pioneers
-**Project:** Dynamic Startup Idea Generator MCP Server  
-**Category:** AI/ML Tools & Productivity
+- **Team:** Puch pioneers
+- **Project:** Dynamic Startup Idea Generator MCP Server  
+- **Category:** AI/ML Tools & Productivity
 
 ## 💡 **Project Overview**
 
