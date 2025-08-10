@@ -328,10 +328,8 @@ async def make_img_black_and_white(
     except Exception as e:
         raise McpError(ErrorData(code=INTERNAL_ERROR, message=str(e)))
 
-# --- Health Check Endpoint ---
-@mcp.get("/health")
-async def health_check():
-    return {"status": "healthy", "service": "MCP Startup Generator"}
+# --- Health Check Endpoint (Removed - FastMCP doesn't support @mcp.get) ---
+# Health check functionality built into FastMCP by default
 
 # --- Run MCP Server ---
 async def main():
