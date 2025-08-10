@@ -349,7 +349,9 @@ async def make_img_black_and_white(
 # Health check functionality built into FastMCP by default
 
 # --- Run MCP Server ---
+async def main():
+    print("🚀 Starting MCP server on http://0.0.0.0:8086")
+    await mcp.run_async("streamable-http", host="0.0.0.0", port=8086)
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8086))
-    print(f"🚀 Starting MCP server on http://0.0.0.0:{port}")
-    mcp.run_sse()
+    asyncio.run(main())
