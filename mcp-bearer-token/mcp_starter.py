@@ -3,9 +3,7 @@ from typing import Annotated
 import os
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-from fastmcp.server.auth.providers.bearer import BearerAuthProvider, RSAKeyPair
 from mcp import ErrorData, McpError
-from mcp.server.auth.provider import AccessToken
 from mcp.types import TextContent, ImageContent, INVALID_PARAMS, INTERNAL_ERROR
 from pydantic import BaseModel, Field, AnyUrl
 
@@ -22,22 +20,8 @@ MY_NUMBER = os.environ.get("MY_NUMBER")
 assert TOKEN is not None, "Please set AUTH_TOKEN in your .env file"
 assert MY_NUMBER is not None, "Please set MY_NUMBER in your .env file"
 
-# --- Auth Provider ---
-class SimpleBearerAuthProvider(BearerAuthProvider):
-    def __init__(self, token: str):
-        k = RSAKeyPair.generate()
-        super().__init__(public_key=k.public_key, jwks_uri=None, issuer=None, audience=None)
-        self.token = token
-
-    async def load_access_token(self, token: str) -> AccessToken | None:
-        if token == self.token:
-            return AccessToken(
-                token=token,
-                client_id="puch-client",
-                scopes=["*"],
-                expires_at=None,
-            )
-        return None
+# --- Auth Provider (Simplified for deployment) ---
+# Authentication temporarily disabled for Render deployment
 
 # --- Rich Tool Description model ---
 class RichToolDescription(BaseModel):
@@ -119,8 +103,7 @@ class Fetch:
 
 # --- MCP Server Setup ---
 mcp = FastMCP(
-    "Job Finder MCP Server",
-    auth=SimpleBearerAuthProvider(TOKEN),
+    "Dynamic Startup Idea Generator MCP Server",
 )
 
 # --- Tool: validate (required by Puch) ---
