@@ -6,4 +6,3 @@ httpx
 readabilipy
 uvicorn
 Pillow
-streamlit
