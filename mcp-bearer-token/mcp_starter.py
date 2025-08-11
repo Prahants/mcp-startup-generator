@@ -3,7 +3,7 @@ from typing import Annotated
 import os
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-from fastmcp.server.auth.providers.bearer import BearerAuthProvider, RSAKeyPair
+from fastmcp.server.auth.providers.jwt import JWTVerifier, RSAKeyPair
 from mcp import ErrorData, McpError
 from mcp.server.auth.provider import AccessToken
 from mcp.types import INVALID_PARAMS, INTERNAL_ERROR
@@ -19,7 +19,7 @@ assert TOKEN is not None, "Please set AUTH_TOKEN in your .env file"
 assert MY_NUMBER is not None, "Please set MY_NUMBER in your .env file"
 
 # --- Auth Provider ---
-class SimpleBearerAuthProvider(BearerAuthProvider):
+class SimpleBearerAuthProvider(JWTVerifier):
     def __init__(self, token: str):
         k = RSAKeyPair.generate()
         super().__init__(public_key=k.public_key, jwks_uri=None, issuer=None, audience=None)
