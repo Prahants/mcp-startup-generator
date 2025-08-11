@@ -55,6 +55,37 @@ async def validate() -> str:
     return MY_NUMBER
 
 
+# --- Tool: about ---
+@mcp.tool()
+async def about() -> dict[str, str]:
+    """
+    Provides information about this MCP server including its name and description.
+    """
+    from textwrap import dedent
+    
+    server_name = "Dynamic Startup Idea Generator MCP Server"
+    server_description = dedent("""
+    This MCP server is designed to generate comprehensive startup ideas and execution plans
+    based on user-provided concepts or nouns. It leverages AI to create detailed business
+    proposals including market analysis, technical architecture, revenue models, and
+    step-by-step execution strategies. The server also includes authentication validation
+    for integration with Puch AI and other MCP-compatible platforms.
+    
+    Key Features:
+    - Dynamic startup idea generation from any concept
+    - Comprehensive business plan creation
+    - Technical stack recommendations
+    - Revenue model suggestions
+    - 3-phase execution roadmaps
+    - Market analysis and target audience identification
+    """).strip()
+
+    return {
+        "name": server_name,
+        "description": server_description
+    }
+
+
 
 
 # --- Tool: startup_idea_generator ---
